@@ -27,5 +27,8 @@ import json
 #1.
 with open(r"D:\python_workspace\kakao\kakao_code.json","w") as fp:
     json.dump(tokens, fp)
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> f2baf79a88ca9fdd7c6f4b2ba2233dbe732c1cc6
