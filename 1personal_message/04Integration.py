@@ -37,7 +37,7 @@ with open("kakao_code.json","r") as fp:
 
 url = "https://kapi.kakao.com/v2/api/talk/memo/default/send"
 
-# 사용자 토큰 헤더
+# 액세스 토큰 헤더
 headers={
     "Authorization" : "Bearer " + tokens["access_token"]
 }
