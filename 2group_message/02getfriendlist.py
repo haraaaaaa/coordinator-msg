@@ -6,7 +6,7 @@ import json
 
 
 # 액세스 코드정보 json파일 불러오기   
-with open(r"D:\Backup\coordinator-msg\2group_message\kakao_code1.json","r") as fp:
+with open(r"D:\Backup\coordinator-msg\tokens\kakao_code1.json","r") as fp:
     tokens = json.load(fp)
 
 friend_url = "https://kapi.kakao.com/v1/api/talk/friends"
@@ -26,6 +26,7 @@ friends_list = result.get("elements")
 print(friends_list)
 # print(type(friends_list))
 print("=============================================")
-print(friends_list.get("uuid"))
-friend_id = friends_list.get("uuid")
+print(friends_list[0].get("uuid"))
+friend_id = friends_list[0].get("uuid")
+print("=============================================")
 print(friend_id)

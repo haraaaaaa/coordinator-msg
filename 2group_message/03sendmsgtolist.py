@@ -5,7 +5,7 @@ import requests
 import json
 
 # 액세스 코드정보 json파일 불러오기   
-with open(r"D:\Backup\coordinator-msg\2group_message\kakao_code1.json","r") as fp:
+with open(r"D:\Backup\coordinator-msg\tokens\kakao_code1.json","r") as fp:
     tokens = json.load(fp)
 
 friend_url = "https://kapi.kakao.com/v1/api/talk/friends"
@@ -35,13 +35,35 @@ send_url= "https://kapi.kakao.com/v1/api/talk/friends/message/default/send"
 data={
     'receiver_uuids': '["{}"]'.format(friend_id),
     "template_object": json.dumps({
-        "object_type":"text",
-        "text":"성공입니다!",
-        "link":{
-            "web_url":"www.daum.net",
-            "web_url":"www.naver.com"
+        "object_type" : "list",
+        "header_title" : "오늘의 의상 추천",
+        "header_link" : {
+            "web_url" : "www.google.com",
+            "mobile_web_url" : "www.google.com"
         },
-        "button_title": "바로 확인"
+        "contents" : [
+            {
+                "title" : "오늘의 당신에겐 티셔츠가 어울려요!",
+                "description" : "상의 추천",
+                "image_url" : "https://www.picoop.co.kr/data/goods/17/2020/05/1243_tmp_9253441e841e04a1b9c63e489ae6e54b7526view.JPG",
+                "image_width" : 50, "image_height" : 50,
+                "link" : {
+                    "web_url" : "www.google.com",
+                    "mobile_web_url" : "www.google.com"
+                }
+            },
+            {
+                "title" : "오늘의 당신에겐 청바지가 어울려요!",
+                "description" : "하의 추천",
+                "image_url" : "https://image.musinsa.com/mfile_s01/2022/01/21/3310353cbe48b3d8c3dcebbc3738f58b125136.jpg",
+                "image_width" : 50, "image_height" : 50,
+                "link" : {
+                    "web_url" : "www.google.com",
+                    "mobile_web_url" : "www.google.com"
+                }
+            }
+            
+        ]
     })
 }
 

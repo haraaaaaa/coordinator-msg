@@ -6,9 +6,9 @@
 import requests
 
 url = 'https://kauth.kakao.com/oauth/token'
-rest_api_key = ''
+rest_api_key = '8ff9153b4b6fb'
 redirect_uri = 'https://www.google.com/'
-authorize_code = ''
+authorize_code = 'dxKwdwcw'
 
 data = {
     'grant_type':'authorization_code',
@@ -24,7 +24,7 @@ print(tokens)
 # json 저장
 import json
 #1.
-with open(r"D:\Backup\coordinator-msg\tokens\kakao_code1.json","w") as fp:
+with open(r"D:\Backup\coordinator-msg\2group_message\kakao_code1.json","w") as fp:
     json.dump(tokens, fp)
 
 
