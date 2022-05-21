@@ -1,5 +1,6 @@
 # 참고 블로그
 # https://novice-engineers.tistory.com/14?category=908185
+# https://developers.kakao.com/docs/latest/ko/kakaologin/rest-api#req-user-info 사용자정보가져오기
 
 import requests
 import json
@@ -9,24 +10,28 @@ import json
 with open(r"D:\Backup\coordinator-msg\tokens\kakao_code1.json","r") as fp:
     tokens = json.load(fp)
 
-friend_url = "https://kapi.kakao.com/v1/api/talk/friends"
+gender_url = "https://kapi.kakao.com/v2/user/me"
+
 
 # 액세스 토큰 헤더
 headers={"Authorization" : "Bearer " + tokens["access_token"]}
 
 # 발송대상 목록 불러오기
-result = json.loads(requests.get(friend_url, headers=headers).text)
+result = json.loads(requests.get(gender_url, headers=headers).text)
 
 # 발송대상 uuid list 생성
 print(type(result))
 print("=============================================")
 print(result)
 print("=============================================")
-friends_list = result.get("elements")
-print(friends_list)
-# print(type(friends_list))
+gender_list = result.get("kakao_account")
+print(gender_list)
+print(type(gender_list))
 print("=============================================")
-print(friends_list[0].get("uuid"))
-friend_id = friends_list[0].get("uuid")
+print(gender_list.get("gender"))
+gender_id = gender_list.get("gender")
 print("=============================================")
-print(friend_id)
+print(gender_id)
+
+with open(r"D:\Backup\coordinator-msg\tokens\gender1.json","w") as fp:
+    json.dump(gender_id, fp)

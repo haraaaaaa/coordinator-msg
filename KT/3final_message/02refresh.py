@@ -20,11 +20,13 @@
 import requests
 import json
 
+with open(r"D:\Backup\coordinator-msg\tokens\kakao_code1.json","r") as fp:
+    tokens = json.load(fp)
+
 url = 'https://kauth.kakao.com/oauth/token'
-rest_api_key = ''
+rest_api_key = '8ff9157a006628fe0bd9ee69a3b4b6fb'
 redirect_uri = 'https://www.google.com/'
-authorize_code = 'dxKE0Kvwdwcw'
-refresh_token = 'Wb9oeWZo9c04AAAGAU8wIzw'
+refresh_token = tokens["refresh_token"]
 
 data = {
     'grant_type':'refresh_token',
@@ -40,5 +42,5 @@ print(tokens)
 # json 저장
 import json
 #1.
-with open(r"D:\Backup\coordinator-msg\2group_message\kakao_code1.json","w") as fp:
+with open(r"D:\Backup\coordinator-msg\tokens\kakao_code1.json","w") as fp:
     json.dump(tokens, fp)
